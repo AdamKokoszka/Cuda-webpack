@@ -34,6 +34,7 @@ function ClickMenu(x) {
     burger = false;
   }
 }
+window.ClickMenu = ClickMenu;
 // ---- All AOS animation on page -----
 let h3 = document.querySelectorAll("h3");
 let Services__el = document.querySelectorAll(".ServicesItems__el");
@@ -43,8 +44,12 @@ let PortfolioItem__el = document.querySelectorAll(".PortfolioItem__el");
 let PeopleReviews__el = document.querySelectorAll(".PeopleReviews__el");
 let Button = document.querySelectorAll("button");
 
-for (let j = 0; j < h3.length; j++) {
-  h3[j].setAttribute('data-aos', 'zoom-out');
+let mobileViewport = window.matchMedia("(max-width: 767.98px)");
+
+if(!mobileViewport.matches) {
+  for (let j = 0; j < h3.length; j++) {
+    h3[j].setAttribute('data-aos', 'zoom-out');
+  }
 }
 for (let j = 0; j < 4; j++) {
   Services__el[j].setAttribute('data-aos', 'zoom-in');
